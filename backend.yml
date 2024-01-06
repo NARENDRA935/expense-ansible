@@ -15,7 +15,7 @@
 
     - name: copy the backend service
       ansible.builtin.copy:
-        name: backend.service
+        src: backend.service
         dest: /etc/systemd/system/backend.service
 
     - name: adding application user
@@ -50,7 +50,7 @@
 
     - name: install mysql
       ansible.builtin.dnf:
-        src: mysql
+        name: mysql
         state: installed
 
     - name: load schema
