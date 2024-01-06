@@ -32,7 +32,7 @@
         state: directory
 
     - name: download and extract the application content
-      ansible.builtin.anarchive:
+      ansible.builtin.unarchive:
         src: https://expense-artifacts.s3.amazonaws.com/backend.zip
         dest: /app
         remote_src: yes
