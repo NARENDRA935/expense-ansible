@@ -2,6 +2,7 @@
 - name: setup frontend
   hosts: all
   become: true
+  gather_facts: true
   tasks:
     - frontend
 
