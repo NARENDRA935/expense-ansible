@@ -1,6 +1,4 @@
 
-
-
 - name: setup frontend
   hosts: all
   become: true
