@@ -1,4 +1,4 @@
-  - name: disable mysql default verson
+  - name: disable mysql default version
     ansible.builtin.shell: dnf module disable mysql -y
 
   - name: copy mysql repo file
@@ -14,7 +14,7 @@
   - name: start mysql service
     ansible.builtin.systemd_service:
       name: mysql
-      enabled: yes
+      enabled: true
       state: restarted
 
   - name: set mysql root password
