@@ -1,8 +1,8 @@
 
 - name: setup frontend
-  hosts: localhost
+  hosts: all
   become: true
-  tasks:
+  roles:
     - frontend
 
 
