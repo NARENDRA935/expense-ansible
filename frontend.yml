@@ -5,37 +5,8 @@
   hosts: all
   become: true
   tasks:
-    - name: install nginx
-      ansible.builtin.dnf:
-        name: nginx
-        state: installed
+    - forntend
 
-    - name: copy expense config file
-      ansible.builtin.copy:
-        src: expense.conf
-        dest: /etc/nginx/default.d/expense.conf
-
-    - name: removing the app content
-      ansible.builtin.file:
-        path: /usr/share/nginx/html
-        state: absent
-
-    - name: creating a directory
-      ansible.builtin.file:
-        path: /usr/share/nginx/html
-        state: directory
-
-    - name: download and extracting the  app content
-      ansible.builtin.unarchive:
-        src:  https://expense-artifacts.s3.amazonaws.com/frontend.zip
-        dest: /usr/share/nginx/html
-        remote_src: yes
-
-    - name: start nginx service
-      ansible.builtin.systemd_service:
-        name: nginx
-        enabled: yes
-        state: restarted
 
 
 
