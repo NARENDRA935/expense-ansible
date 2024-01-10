@@ -11,7 +11,7 @@
         state: installed
 
     - name: copy the backend service
-      ansible.builtin.template:
+      ansible.builtin.copy:
         src: backend.service
         dest: /etc/systemd/system/backend.service
 
