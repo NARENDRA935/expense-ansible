@@ -35,6 +35,7 @@
         name: backend
         state: restarted
         enabled: yes
+        daemon-reload: yes
 
 
     - name: install mysql & python library for mysql
