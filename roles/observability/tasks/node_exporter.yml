@@ -1,0 +1,14 @@
+- name: setup host name in prompt
+  ansible.builtin.shell: set-hostname {{ env }}-{{ component }}
+
+- name: extract node exporter
+  ansible.builtin.unarchive:
+    src: https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-amd64.tar.gz
+    dest: /opt
+    remote_src: yes
+
+- name: Copy Node_exporter service
+  ansible.builtin.template:
+    src: node_exporter.service
+    dest: /etc/systemd/system/node_exporter.service
+
